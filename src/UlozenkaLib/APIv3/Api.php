@@ -236,7 +236,7 @@ class Api
      * @param RequestEnvelope $requestEnvelope
      * @return RequestEnvelope
      */
-    private function attachBasicHeadersToRequest(RequestEnvelope $requestEnvelope)
+    protected function attachBasicHeadersToRequest(RequestEnvelope $requestEnvelope)
     {
         $requestEnvelope->setAppIdHeader($this->appId);
         $requestEnvelope->setAppVersionHeader($this->appVersion);
@@ -244,4 +244,28 @@ class Api
         $requestEnvelope->setAcceptHeader(Header::FORMAT_APPLICATION_JSON);
         return $requestEnvelope;
     }
+
+	/**
+	 * @return IFormatter
+	 */
+	public function getFormatter()
+	{
+		return $this->formatter;
+	}
+
+	/**
+	 * @return null|string
+	 */
+	public function getShopId()
+	{
+		return $this->shopId;
+	}
+
+	/**
+	 * @return Connector
+	 */
+	public function getConnector()
+	{
+		return $this->connector;
+	}
 }
