@@ -59,5 +59,5 @@ interface IFormatter
      */
     public function formatGetTransportServiceBranchesResponse(ConnectorResponse $connectorResponse);
 
-
+	public function formatGetTransportServicesResponse(ConnectorResponse $connectorResponse);
 }

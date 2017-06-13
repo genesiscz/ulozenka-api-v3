@@ -1,0 +1,99 @@
+{
+  "code": 200,
+  "_links": {
+    "self": {
+      "href": "https://api.ulozenka.cz/v3/transportservices?shopId=5158"
+    }
+  },
+  "data": [
+    {
+      "_links": {
+        "self": {
+          "href": "https://api.ulozenka.cz/v3/transportservices/1"
+        },
+        "logo": {
+          "href": "http://www.ulozenka.cz/src/images/ulozenka-logo.png"
+        }
+      },
+      "id": 1,
+      "name": "Uloženka",
+      "description": "",
+      "alias": "ulozenka",
+      "active": 1,
+      "transport": {
+        "id": 1,
+        "name": "Uloženka",
+        "alias": "ulozenka"
+      },
+      "use_destination_branches": 1,
+      "requirements": {
+        "company_name": 2,
+        "customer_name": 1,
+        "customer_surname": 1,
+        "customer_phone": 1,
+        "customer_email": 1,
+        "address_street": 0,
+        "address_town": 0,
+        "address_zip": 0,
+        "address_state": 1,
+        "cash_on_delivery": 2,
+        "stated_price": 0,
+        "insurance": 0,
+        "currency": 2,
+        "destination_branch_id": 1,
+        "variable": 2,
+        "password": 2,
+        "parcel_count": 2,
+        "note": 2,
+        "weight": 0,
+        "allow_card_payment": 2,
+        "require_full_age": 2
+      }
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://api.ulozenka.cz/v3/transportservices/2"
+        },
+        "logo": {
+          "href": null
+        }
+      },
+      "id": 2,
+      "name": "Zmluvný balík s poistením",
+      "description": "",
+      "alias": "skpost_default",
+      "active": 1,
+      "transport": {
+        "id": 3,
+        "name": "Slovenská pošta",
+        "alias": "skpost"
+      },
+      "use_destination_branches": 0,
+      "requirements": {
+        "company_name": 2,
+        "customer_name": 1,
+        "customer_surname": 1,
+        "customer_phone": 2,
+        "customer_email": 2,
+        "address_street": 1,
+        "address_town": 1,
+        "address_zip": 1,
+        "address_state": 1,
+        "cash_on_delivery": 2,
+        "stated_price": 0,
+        "insurance": 1,
+        "currency": 2,
+        "destination_branch_id": 0,
+        "variable": 2,
+        "password": 0,
+        "parcel_count": 2,
+        "note": 2,
+        "weight": 1,
+        "allow_card_payment": 0,
+        "require_full_age": 0
+      }
+    }
+  ],
+  "errors": []
+}

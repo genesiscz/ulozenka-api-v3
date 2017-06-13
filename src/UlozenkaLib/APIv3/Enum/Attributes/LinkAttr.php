@@ -16,4 +16,5 @@ class LinkAttr
     const RESOURCE_WEBSITE = 'website';
     const RESOURCE_PICTURE = 'picture';
     const RESOURCE_NEXT = 'next';
+    const RESOURCE_LOGO = 'logo';
 }
