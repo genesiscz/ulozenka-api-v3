@@ -9,6 +9,7 @@ use UlozenkaLib\APIv3\Resource\Labels\Request\LabelRequest;
 use UlozenkaLib\APIv3\Resource\Labels\Response\GetLabelsResponse;
 use UlozenkaLib\APIv3\Resource\StatusHistory\Response\GetStatusHistoryResponse;
 use UlozenkaLib\APIv3\Resource\TransportServices\Branches\Response\GetTransportServiceBranchesResponse;
+use UlozenkaLib\APIv3\Resource\TransportServices\GetTransportServicesResponse;
 
 /**
  * Interface IFormatter
@@ -59,5 +60,9 @@ interface IFormatter
      */
     public function formatGetTransportServiceBranchesResponse(ConnectorResponse $connectorResponse);
 
+	/**
+	 * @param ConnectorResponse $connectorResponse
+	 * @return GetTransportServicesResponse
+	 */
 	public function formatGetTransportServicesResponse(ConnectorResponse $connectorResponse);
 }

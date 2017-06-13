@@ -20,6 +20,7 @@ use UlozenkaLib\APIv3\Resource\Labels\Response\GetLabelsResponse;
 use UlozenkaLib\APIv3\Resource\StatusHistory\Response\GetStatusHistoryResponse;
 use UlozenkaLib\APIv3\Resource\Tracking\Response\GetTrackingResponse;
 use UlozenkaLib\APIv3\Resource\TransportServices\Branches\Response\GetTransportServiceBranchesResponse;
+use UlozenkaLib\APIv3\Resource\TransportServices\GetTransportServicesResponse;
 
 
 /**
@@ -191,6 +192,32 @@ class Api
         $formattedResponse = $this->formatter->formatGetTransportServiceBranchesResponse($connectorResponse);
 
         return $formattedResponse;
+    }
+
+	/**
+	 * @param null $shopId
+	 * @return GetTransportServicesResponse
+	 */
+	public function getTransportServices($shopId = null) {
+	    $resource = Resource::TRANSPORT_SERVICES;
+
+	    $queryStringParams = [
+		    BranchAttr::QS_SHOP_ID => $shopId,
+	    ];
+
+	    $queryString = http_build_query($queryStringParams);
+
+	    if (mb_strlen($queryString) > 0) {
+		    $resource .= '?' . $queryString;
+	    }
+
+	    $requestEnvelope = new RequestEnvelope(null, $resource, Method::GET);
+	    $requestEnvelopeWithHeaders = $this->attachBasicHeadersToRequest($requestEnvelope);
+
+	    $connectorResponse = $this->getConnector()->sendRequest($requestEnvelopeWithHeaders);
+	    $formattedResponse = $this->getFormatter()->formatGetTransportServicesResponse($connectorResponse);
+
+	    return $formattedResponse;
     }
 
     /**
