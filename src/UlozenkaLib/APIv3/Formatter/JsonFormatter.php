@@ -67,7 +67,6 @@ use UlozenkaLib\APIv3\Resource\TransportServices\GetTransportServicesResponse;
  */
 class JsonFormatter implements IFormatter
 {
-
 	/**
 	 *
 	 * @param ConsignmentRequest $consignmentRequest
@@ -339,7 +338,7 @@ class JsonFormatter implements IFormatter
 	 * @param mixed $value
 	 * @throws Exception
 	 */
-	private function createAttributeIfHasValue(&$parentNode, $attributeName, $value)
+	protected function createAttributeIfHasValue(&$parentNode, $attributeName, $value)
 	{
 		if (isset($parentNode)) {
 			if (!empty($value)) {
@@ -357,7 +356,7 @@ class JsonFormatter implements IFormatter
 	 * @param bool $value
 	 * @throws Exception
 	 */
-	private function createBoolAttributeIfHasValue(&$parentNode, $attributeName, $value)
+	protected function createBoolAttributeIfHasValue(&$parentNode, $attributeName, $value)
 	{
 		if (isset($parentNode)) {
 			if (isset($value)) {
@@ -373,7 +372,7 @@ class JsonFormatter implements IFormatter
 	 * @param stdClass $jsonObject
 	 * @return Consignment[]
 	 */
-	private function proccessConsignmentsResponseData($jsonObject)
+	protected function proccessConsignmentsResponseData($jsonObject)
 	{
 		$data = [];
 		foreach ($this->getJsonAttr($jsonObject, ResponseAttr::DATA) as $dataObject) {
@@ -446,7 +445,7 @@ class JsonFormatter implements IFormatter
 	 * @param stdClass $dataObject
 	 * @return Label[]
 	 */
-	private function proccessLabelsResponseData($dataObject)
+	protected function proccessLabelsResponseData($dataObject)
 	{
 		$labels = [];
 		if (!empty($dataObject)) {
@@ -474,7 +473,7 @@ class JsonFormatter implements IFormatter
 	 * @param stdClass $dataObject
 	 * @return ConsignmentStatus[]
 	 */
-	private function proccessStatusHistoryResponseData($dataObject)
+	protected function proccessStatusHistoryResponseData($dataObject)
 	{
 		$statuses = [];
 		if (!empty($dataObject)) {
@@ -503,7 +502,7 @@ class JsonFormatter implements IFormatter
 	 *
 	 * @return \UlozenkaLib\APIv3\Model\Tracking[]
 	 */
-	private function proccessTrackingResponseData($dataObject)
+	protected function proccessTrackingResponseData($dataObject)
 	{
 		$tracking = [];
 		if (isset($dataObject[0])) {
@@ -585,7 +584,7 @@ class JsonFormatter implements IFormatter
 	 *
 	 * @return TransportService[]
 	 */
-	private function processTransportServicesResponseData($dataObject)
+	protected function processTransportServicesResponseData($dataObject)
 	{
 		$transportServices = [];
 		foreach ($dataObject as $transportService) {
@@ -645,7 +644,7 @@ class JsonFormatter implements IFormatter
 	 * @param stdClass $dataObject
 	 * @return TransportServiceBranches
 	 */
-	private function proccessTransportServiceBranchesResponseData($dataObject)
+	protected function proccessTransportServiceBranchesResponseData($dataObject)
 	{
 
 		// REGISTER BRANCHES
@@ -790,7 +789,7 @@ class JsonFormatter implements IFormatter
 	 * @param stdClass $destinations
 	 * @return Destination[]
 	 */
-	private function proccessRegisterBranchDestinations($destinations)
+	protected function proccessRegisterBranchDestinations($destinations)
 	{
 		$registerDestinations = [];
 		foreach ($destinations as $singleRegisterDestination) {
@@ -807,7 +806,7 @@ class JsonFormatter implements IFormatter
 	 * @param stdClass $regularOpeningHours
 	 * @return RegularOpeningHours
 	 */
-	private function proccessRegularOpeningHours($regularOpeningHours)
+	protected function proccessRegularOpeningHours($regularOpeningHours)
 	{
 		$regularOpeningHoursObject = new RegularOpeningHours();
 		foreach ($regularOpeningHours as $dayAlias => $dayArray) {
@@ -827,7 +826,7 @@ class JsonFormatter implements IFormatter
 	 * @param stdClass $announcements
 	 * @return Announcement[]
 	 */
-	private function proccessAnnouncements($announcements)
+	protected function proccessAnnouncements($announcements)
 	{
 		$resultArray = [];
 		foreach ($announcements as $singleAnnouncement) {
@@ -841,7 +840,7 @@ class JsonFormatter implements IFormatter
 	 * @param $timeObject
 	 * @return DateTime|null
 	 */
-	private function proccessDateTime($timeObject)
+	protected function proccessDateTime($timeObject)
 	{
 		$dateTimeResult = null;
 		if (isset($timeObject)) {
@@ -860,7 +859,7 @@ class JsonFormatter implements IFormatter
 	 * @param stdClass $links
 	 * @return Link[]
 	 */
-	private function proccessLinks($links)
+	protected function proccessLinks($links)
 	{
 		// proccess HATEOAS links
 		if (!empty($links)) {
@@ -881,7 +880,7 @@ class JsonFormatter implements IFormatter
 	 * @param stdClass $jsonObject
 	 * @return Error[]
 	 */
-	private function proccessResponseErrors($jsonObject)
+	protected function proccessResponseErrors($jsonObject)
 	{
 		// proccess errors
 		$errorsJsonAttr = $this->getJsonAttr($jsonObject, ResponseAttr::ERRORS);
@@ -909,7 +908,7 @@ class JsonFormatter implements IFormatter
 	 * @throws StateMismatchException
 	 * @throws SyntaxErrorException
 	 */
-	private function jsonValidateAndDecode($json, $assocArray = false)
+	protected function jsonValidateAndDecode($json, $assocArray = false)
 	{
 
 		// decode the JSON data
@@ -947,7 +946,7 @@ class JsonFormatter implements IFormatter
 	 * @param string $attrName
 	 * @return mixed|null
 	 */
-	private function getJsonAttr($resource, $attrName)
+	protected function getJsonAttr($resource, $attrName)
 	{
 		if (isset($resource) && isset($resource->$attrName)) {
 			return $resource->$attrName;
