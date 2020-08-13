@@ -1,5 +1,5 @@
 {
-    "name": "ulozenka/api-v3",
+    "name": "genesiscz/ulozenka-api-v3",
     "type": "library",
     "description": "Uloženka APIv3 library",
     "keywords": ["ulozenka", "api", "restapi","transport"],
