@@ -17,11 +17,9 @@
     },
     "require": {
         "php": ">= 5.4.0",
-        "bitbang/http": "0.2@dev"
+        "bitbang/http": "^0.3"
     },
-    "require-dev": {
-        "nette/tester": "@dev"
-    },
+   
     "autoload": {
         "psr-4": {
             "UlozenkaLib\\": "src/UlozenkaLib/"
